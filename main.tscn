@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://jahufjsg6ba1"]
+
+[ext_resource type="Texture2D" uid="uid://ykmmiae2607h" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=370995737]
+
+[node name="Environment" type="Node2D" parent="." unique_id=354335237]
+
+[node name="Background" type="Parallax2D" parent="Environment" unique_id=1059079769]
+repeat_size = Vector2(102.4, 102.4)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Background" unique_id=1378509360]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ig7tw")
