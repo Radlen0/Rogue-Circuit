@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3rsksvxp8d23" path="res://src/car/car.gd" id="1_xlk8c"]
 [ext_resource type="PackedScene" uid="uid://22discpuyrop" path="res://src/car/car_visual.tscn" id="2_ikygv"]
 [ext_resource type="Script" uid="uid://brwym8nu1gvf2" path="res://src/car/input_component.gd" id="3_ikygv"]
+[ext_resource type="Script" uid="uid://d67l21y0vkt6" path="res://src/car/camera_2d.gd" id="3_tf5ac"]
 
 [sub_resource type="Curve" id="Curve_ikygv"]
 _data = [Vector2(0, 0.3166811), 0.0, 0.0, 0, 0, Vector2(0.3868778, 1), 0.0, 0.0, 0, 0, Vector2(0.8144796, 1), -1.3172627e-06, -1.3172627e-06, 0, 0, Vector2(1, 0.16420496), 0.0, 0.0, 0, 0]
@@ -33,6 +34,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 2.0
+script = ExtResource("3_tf5ac")
 
 [node name="Components" type="Node" parent="." unique_id=1064547670]
 

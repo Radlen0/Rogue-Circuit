@@ -8,11 +8,11 @@
 [node name="Environment" type="Node2D" parent="." unique_id=354335237]
 
 [node name="Background" type="Parallax2D" parent="Environment" unique_id=1059079769]
-repeat_size = Vector2(204.8, 204.8)
+repeat_size = Vector2(102.4, 102.4)
 repeat_times = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Background" unique_id=1378509360]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ig7tw")
 
 [node name="Car" parent="." unique_id=1231294243 instance=ExtResource("2_0xm2m")]
