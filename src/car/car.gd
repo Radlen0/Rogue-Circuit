@@ -20,6 +20,22 @@ extends CharacterBody2D
 # --- State Variables ---
 var current_steer_angle: float = 0.0
 
+var is_drifting: bool = false :
+	get:
+		var side_direction : Vector2 = transform.x
+		var lateral_velocity : float = side_direction.dot(velocity)
+		return abs(lateral_velocity) >= drifting_speed
+var is_tires_slipping : bool = false :
+	get:
+		var speed = velocity.length()
+		var throttle = Input.get_action_strength("accelerate")
+	
+		# If we are pushing gas hard but moving slowly, tires are spinning!
+		if throttle > 0.8 and speed < 100:
+		# Return a value between 0 and 1 based on how much spin there is
+			return remap(speed, 0, 250, 0.0, 1.0) < 0.5
+		return false
+	
 # --- References ---
 @onready var input_component: Node = $Components/InputComponent
 @onready var car_visual: Node2D = $CarVisual
@@ -89,3 +105,4 @@ func apply_traction(delta) -> void:
 
 func update_visual() -> void:
 	car_visual.update_stack_rotation(rotation)
+	car_visual.update_tire_trail(is_drifting, is_tires_slipping)

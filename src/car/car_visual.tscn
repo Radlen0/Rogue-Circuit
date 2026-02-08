@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://dxpobgmbqs2xx" path="res://src/car/car_visual.gd" id="1_nugoa"]
 [ext_resource type="Texture2D" uid="uid://dnjbxmmvrgd3v" path="res://assets/cars/PurpleCar.png" id="2_nugoa"]
 
+[sub_resource type="Curve" id="Curve_nugoa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25804877), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_cs33c"]
+colors = PackedColorArray(0.3019608, 0.3019608, 0.3019608, 1, 0.8509804, 0.8509804, 0.8509804, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cs33c"]
 atlas = ExtResource("2_nugoa")
 region = Rect2(16, 0, 16, 16)
@@ -64,6 +71,42 @@ animations = [{
 [node name="CarVisual" type="Node2D" unique_id=862861056]
 script = ExtResource("1_nugoa")
 
+[node name="VFX" type="Node2D" parent="." unique_id=1353687220]
+
+[node name="LeftDriftParticles" type="CPUParticles2D" parent="VFX" unique_id=437973376]
+position = Vector2(-3, 2)
+emitting = false
+amount = 20
+lifetime = 0.25
+speed_scale = 0.2
+explosiveness = 0.3
+randomness = 0.1
+direction = Vector2(0, 1)
+spread = 50.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 50.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_nugoa")
+color = Color(0.6, 0.6, 0.6, 0.78431374)
+color_ramp = SubResource("Gradient_cs33c")
+
+[node name="RightDriftParticles" type="CPUParticles2D" parent="VFX" unique_id=642258523]
+position = Vector2(3, 2)
+emitting = false
+amount = 20
+lifetime = 0.25
+speed_scale = 0.2
+explosiveness = 0.3
+randomness = 0.1
+direction = Vector2(0, 1)
+spread = 50.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 50.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_nugoa")
+color = Color(0.6, 0.6, 0.6, 0.78431374)
+color_ramp = SubResource("Gradient_cs33c")
+
 [node name="SpriteStack2D" type="Node2D" parent="." unique_id=1904724774]
 script = ExtResource("1_b7t4n")
 texture_resource = SubResource("SpriteFrames_xvfy7")
@@ -103,3 +146,11 @@ texture = SubResource("AtlasTexture_bpb4a")
 position = Vector2(0, -6)
 rotation = 4.712389
 texture = SubResource("AtlasTexture_qdhvd")
+
+[node name="Anchors" type="Node2D" parent="." unique_id=1636703151]
+
+[node name="LeftTireAnchor" type="Marker2D" parent="Anchors" unique_id=1552205490]
+position = Vector2(-3, 2)
+
+[node name="RightTrailAnchor" type="Marker2D" parent="Anchors" unique_id=1657287059]
+position = Vector2(3, 2)
