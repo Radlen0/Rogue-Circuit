@@ -14,7 +14,7 @@ var left_trail : TireTrail
 var right_trail : TireTrail
 
 func update_stack_rotation(car_angle: float):
-	sprite_stack.rotation_angle = rad_to_deg(car_angle - PI/2)
+	sprite_stack.rotation_angle = car_angle - PI/2
 
 func update_tire_trail(is_drifting, is_slipping):
 	if is_drifting or is_slipping:

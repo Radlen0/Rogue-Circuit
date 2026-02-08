@@ -24,10 +24,14 @@ class_name SpriteStack2D
 		sprite.owner = get_tree().edited_scene_root
 		sprite.name = "Layer_" + str(i)
 
-@export_range(0, 360) var rotation_angle : float = 0:
+@export_range(0, 360) var rotation_deg : float = 0:
 		set(value):
-			rotation_angle = value
+			rotation_deg = value
+			rotation_angle = deg_to_rad(value)
 			update_rotation(deg_to_rad(rotation_angle))
+		get:
+			return rad_to_deg(rotation_angle)
+var rotation_angle : float = 0
 
 @export var face_camera : bool = true 
 
@@ -36,10 +40,8 @@ func _process(_delta: float) -> void:
 		return
 	if face_camera:
 		var cam = get_viewport().get_camera_2d()
-	
 		global_rotation = cam.get_screen_rotation()
-	
-		update_rotation(deg_to_rad(rotation_angle) - global_rotation)
+		update_rotation(rotation_angle - global_rotation)
 
 func update_rotation(rotation_value: float) -> void:
 	for sprite in get_children():
