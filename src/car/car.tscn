@@ -10,8 +10,8 @@ _data = [Vector2(0, 0.3166811), 0.0, 0.0, 0, 0, Vector2(0.3868778, 1), 0.0, 0.0,
 point_count = 4
 
 [sub_resource type="Curve" id="Curve_tf5ac"]
-_data = [Vector2(0.00678733, 0.8249347), 0.0, 0.0, 0, 0, Vector2(0.39592764, 0.3134954), -1.2480458, -1.2480458, 0, 0, Vector2(0.699095, 0.10645437), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.8249347), 0.0, 0.0, 0, 0, Vector2(0.4932126, 0.20938307), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iox4k"]
 size = Vector2(10, 10)
@@ -19,6 +19,9 @@ size = Vector2(10, 10)
 [node name="Car" type="CharacterBody2D" unique_id=1231294243]
 script = ExtResource("1_xlk8c")
 torque_curve = SubResource("Curve_ikygv")
+braking_strength = 150.0
+wheel_base = 45.0
+steer_angle = 35.0
 tire_grip_curve = SubResource("Curve_tf5ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183791002]

@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var wheel_base: float = 50.0  
 @export var steer_angle: float = 25.0
 @export var steering_response: float = 20.0 
-@export var drifting_speed: float = 70.0
+@export var drifting_speed: float = 80.0
 
 @export_group("Physics") 
 @export var tire_grip_curve: Curve
