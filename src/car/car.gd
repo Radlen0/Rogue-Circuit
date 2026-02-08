@@ -22,6 +22,7 @@ var current_steer_angle: float = 0.0
 
 # --- References ---
 @onready var input_component: Node = $Components/InputComponent
+@onready var car_visual: Node2D = $CarVisual
 
 func _physics_process(delta: float) -> void:
 	var throttle_input : float = input_component.throttle
@@ -32,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	apply_steering(steering_input, delta)
 	apply_traction(delta)
 	move_and_slide()
+	update_visual()
 
 
 func apply_acceleration(throttle : float, brake : float, delta : float) -> void:
@@ -84,3 +86,6 @@ func apply_traction(delta) -> void:
 	var lateral_speed_ratio : float = abs(lateral_velocity) / max_speed
 	var tire_grip : float = tire_grip_curve.sample(lateral_speed_ratio) * 300
 	velocity = velocity.move_toward(target_velocity, tire_grip * delta)
+
+func update_visual() -> void:
+	car_visual.update_stack_rotation(rotation)

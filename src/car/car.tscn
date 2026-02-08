@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yplrv333a1cl"]
 
-[ext_resource type="Texture2D" uid="uid://dsr34r2vpj61y" path="res://icon.svg" id="1_iox4k"]
 [ext_resource type="Script" uid="uid://d3rsksvxp8d23" path="res://src/car/car.gd" id="1_xlk8c"]
+[ext_resource type="PackedScene" uid="uid://22discpuyrop" path="res://src/car/car_visual.tscn" id="2_ikygv"]
 [ext_resource type="Script" uid="uid://brwym8nu1gvf2" path="res://src/car/input_component.gd" id="3_ikygv"]
 
 [sub_resource type="Curve" id="Curve_ikygv"]
@@ -13,7 +13,7 @@ _data = [Vector2(0.00678733, 0.8249347), 0.0, 0.0, 0, 0, Vector2(0.39592764, 0.3
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iox4k"]
-size = Vector2(12, 38)
+size = Vector2(10, 10)
 
 [node name="Car" type="CharacterBody2D" unique_id=1231294243]
 script = ExtResource("1_xlk8c")
@@ -21,17 +21,10 @@ torque_curve = SubResource("Curve_ikygv")
 tire_grip_curve = SubResource("Curve_tf5ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183791002]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_iox4k")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=832489680]
-position = Vector2(5.9604645e-08, 0)
-scale = Vector2(0.09375, 0.296875)
-texture = ExtResource("1_iox4k")
-
-[node name="Components" type="Node" parent="." unique_id=1064547670]
-
-[node name="InputComponent" type="Node" parent="Components" unique_id=1865832101]
-script = ExtResource("3_ikygv")
+[node name="CarVisual" parent="." unique_id=862861056 instance=ExtResource("2_ikygv")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=745633191]
 ignore_rotation = false
@@ -40,3 +33,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 2.0
+
+[node name="Components" type="Node" parent="." unique_id=1064547670]
+
+[node name="InputComponent" type="Node" parent="Components" unique_id=1865832101]
+script = ExtResource("3_ikygv")

@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://22discpuyrop"]
+
+[ext_resource type="Script" uid="uid://b1bb6j81xyy5o" path="res://src/systems/sprite_stack_2d/sprite_stack_2d.gd" id="1_b7t4n"]
+[ext_resource type="Script" uid="uid://dxpobgmbqs2xx" path="res://src/car/car_visual.gd" id="1_nugoa"]
+[ext_resource type="Texture2D" uid="uid://dnjbxmmvrgd3v" path="res://assets/cars/PurpleCar.png" id="2_nugoa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs33c"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr0ad"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a33bx"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob7j3"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynpd8"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpb4a"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdhvd"]
+atlas = ExtResource("2_nugoa")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvfy7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs33c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr0ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a33bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob7j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynpd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpb4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdhvd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CarVisual" type="Node2D" unique_id=862861056]
+script = ExtResource("1_nugoa")
+
+[node name="SpriteStack2D" type="Node2D" parent="." unique_id=1904724774]
+script = ExtResource("1_b7t4n")
+texture_resource = SubResource("SpriteFrames_xvfy7")
+rotation_angle = 270.0
+metadata/_custom_type_script = "uid://b1bb6j81xyy5o"
+
+[node name="Layer_0" type="Sprite2D" parent="SpriteStack2D" unique_id=607054885]
+rotation = 4.712389
+texture = SubResource("AtlasTexture_cs33c")
+
+[node name="Layer_1" type="Sprite2D" parent="SpriteStack2D" unique_id=82118386]
+position = Vector2(0, -1)
+rotation = 4.712389
+texture = SubResource("AtlasTexture_jr0ad")
+
+[node name="Layer_2" type="Sprite2D" parent="SpriteStack2D" unique_id=2133442926]
+position = Vector2(0, -2)
+rotation = 4.712389
+texture = SubResource("AtlasTexture_a33bx")
+
+[node name="Layer_3" type="Sprite2D" parent="SpriteStack2D" unique_id=467888764]
+position = Vector2(0, -3)
+rotation = 4.712389
+texture = SubResource("AtlasTexture_ob7j3")
+
+[node name="Layer_4" type="Sprite2D" parent="SpriteStack2D" unique_id=1319489172]
+position = Vector2(0, -4)
+rotation = 4.712389
+texture = SubResource("AtlasTexture_ynpd8")
+
+[node name="Layer_5" type="Sprite2D" parent="SpriteStack2D" unique_id=1023875147]
+position = Vector2(0, -5)
+rotation = 4.712389
+texture = SubResource("AtlasTexture_bpb4a")
+
+[node name="Layer_6" type="Sprite2D" parent="SpriteStack2D" unique_id=1800777685]
+position = Vector2(0, -6)
+rotation = 4.712389
+texture = SubResource("AtlasTexture_qdhvd")
