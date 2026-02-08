@@ -43,32 +43,33 @@ var is_tires_slipping : bool = false :
 func _physics_process(delta: float) -> void:
 	var throttle_input : float = input_component.throttle
 	var steering_input : float = input_component.steering
-	var brake_input : float = input_component.brake
 	
-	apply_acceleration(throttle_input, brake_input, delta)
+	apply_acceleration(throttle_input, delta)
 	apply_steering(steering_input, delta)
 	apply_traction(delta)
 	move_and_slide()
 	update_visual()
 
 
-func apply_acceleration(throttle : float, brake : float, delta : float) -> void:
+func apply_acceleration(throttle : float, delta : float) -> void:
 	var forward_direction : Vector2 = -transform.y
 	
-	if throttle:
-		var forward_velocity : float = forward_direction.dot(velocity)
-		if throttle > 0:
-			var forward_speed_ratio : float = abs(forward_velocity) / max_speed
-			var engine_power = torque_curve.sample(forward_speed_ratio) * 200
-			velocity = velocity.move_toward(forward_direction * max_speed * throttle, engine_power * delta)
+	if not throttle:
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		return
+	
+	var forward_velocity : float = forward_direction.dot(velocity)
+	if throttle > 0:
+		var forward_speed_ratio : float = abs(forward_velocity) / max_speed
+		var engine_power = torque_curve.sample(forward_speed_ratio) * 200
+		velocity = velocity.move_toward(forward_direction * max_speed * throttle, engine_power * delta)
+	else:
+		if forward_velocity > 0:
+			velocity = velocity.move_toward(Vector2.ZERO, braking_strength * delta)
 		else:
 			var forward_speed_ratio : float = abs(forward_velocity) / max_reverse_speed
 			var engine_power = torque_curve.sample(forward_speed_ratio) * 150
 			velocity = velocity.move_toward(forward_direction * max_reverse_speed * throttle, engine_power * delta)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	if brake:
-		velocity = velocity.move_toward(Vector2.ZERO, braking_strength * delta)
 	
 func apply_steering(steering: float, delta: float) -> void:
 	# Prevent turning while stationary
