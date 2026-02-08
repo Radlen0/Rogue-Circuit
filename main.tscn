@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ykmmiae2607h" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://yplrv333a1cl" path="res://src/car/car.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://by2877i2r2wyc" path="res://src/managers/tire_tail_manager/tire_trail_manager.gd" id="3_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=370995737]
 
@@ -15,4 +16,11 @@ repeat_times = 20
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ig7tw")
 
-[node name="Car" parent="." unique_id=1231294243 instance=ExtResource("2_0xm2m")]
+[node name="Vehicles" type="Node2D" parent="Environment" unique_id=1391065291]
+
+[node name="Car" parent="Environment/Vehicles" unique_id=1231294243 instance=ExtResource("2_0xm2m")]
+
+[node name="TireTrails" type="Node2D" parent="Environment/Vehicles" unique_id=1249685941]
+
+[node name="TireTrailManager" type="Node2D" parent="Environment/Vehicles/TireTrails" unique_id=1848657566 groups=["TireTrailManager"]]
+script = ExtResource("3_h2yge")

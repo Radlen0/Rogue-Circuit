@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bf13pf70ma5et"]
+
+[ext_resource type="Script" uid="uid://cggcd7balaue0" path="res://src/managers/tire_tail_manager/tile_trail.gd" id="1_537gt"]
+
+[node name="TileTrail" type="Line2D" unique_id=549332604]
+script = ExtResource("1_537gt")

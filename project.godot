@@ -28,6 +28,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
+[global_group]
+
+TireTrailManager=""
+
 [input]
 
 accelerate={
