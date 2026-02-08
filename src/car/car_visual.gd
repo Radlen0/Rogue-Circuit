@@ -20,7 +20,6 @@ func update_tire_trail(is_drifting, is_slipping):
 	if is_drifting or is_slipping:
 		left_drift_particles.emitting = true
 		right_drift_particles.emitting =  true
-		print(left_trail)
 		if not left_trail:
 			left_trail = tire_trail_manager.create_trail()
 			
