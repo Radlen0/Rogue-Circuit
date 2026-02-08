@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://rhxso0hd2fp6"]
+
+[ext_resource type="Script" uid="uid://b1bb6j81xyy5o" path="res://src/systems/sprite_stack_2d/sprite_stack_2d.gd" id="1_mgxp5"]
+
+[node name="SpriteStack2D" type="Node2D" unique_id=1047910801]
+script = ExtResource("1_mgxp5")
